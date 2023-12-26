@@ -1,4 +1,4 @@
-//import org.apache.maven.execution.MavenSession;
+package com.bytedusk.dev.plugin.maven.utcg;//import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.AbstractMojo;
 //import org.apache.maven.plugin.MojoExecution;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
@@ -18,13 +18,17 @@ public class TestMojo extends AbstractMojo {
     @Parameter(name = "name", defaultValue = "test")
     private String name;
 
-    @Parameter(property = "utcg.generator.outputDirectory",
+    @Parameter(property = "utcg.generator.outputDir",
             defaultValue = "${project.build.testSourceDirectory}", required = true)
-    private String utcgOutputDirectory;
+    private String utcgOutputDir;
+
+    @Parameter(property = "utcg.generator.inputDir",
+            defaultValue = "${project.build.testSourceDirectory}", required = true)
+    private String utcgInputDir;
 
     public void execute() {
         getLog().info("This is goal1.");
-        getLog().info("utcgOutputDirectory:"+utcgOutputDirectory);
+        getLog().info("utcgOutputDir:"+utcgOutputDir);
 
     }
 }
