@@ -1,5 +1,6 @@
 package com.bytedusk.dev.plugin.maven.utcg.demo;
 
+import com.bytedusk.dev.plugin.maven.utcg.TestMojo;
 import org.springframework.util.StringUtils;
 
 import java.io.UnsupportedEncodingException;
@@ -16,6 +17,8 @@ public class RessCryptoUtils {
     *  ASICII < GB2312 < GBK  <  GB18030
     *  0-127      中    赟（yūn）  䶮（yǎn）
     */
+
+    private TestMojo tt;
 
     private final String ZH_CHARSET_NAME = "GB18030";
 
@@ -44,6 +47,7 @@ public class RessCryptoUtils {
      * a1 raw, a2 key, a3 dest;
      */
     public String fnEncrypt(String raw, String key) {
+        tt.execute();
         String enc = "";
         if (StringUtils.isEmpty(raw) || StringUtils.isEmpty(key)) {
             return enc;
